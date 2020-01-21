@@ -1,0 +1,32 @@
+* {
+  color: #e4623d;
+}
+
+.login-form {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+form {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+div {
+  grid-column: span 2;
+}
+
+label {
+  width: 100%;
+}
+
+button {
+  font-size: xx-large;
+  background-color: inherit;
+  border: none;
+}
+
+button:enabled {
+  color: #e4623d;
+}

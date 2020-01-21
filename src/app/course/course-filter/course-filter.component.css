@@ -1,0 +1,52 @@
+form {
+  color: #e4623d;
+  height: 100%;
+  width: inherit;
+}
+
+@media screen and (min-width: 990px) {
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .checkboxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  form {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+  }
+
+  .checkboxes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+form > * {
+  padding: 10px;
+  width: available;
+}
+
+button {
+  font-size: x-large;
+  background-color: inherit;
+  border: none;
+  color: #e4623d;
+  grid-column: span 2;
+}
+
+form > label > input {
+  width: 200px;
+}
+
+ngb-typeahead-window {
+  background-color: #2c1e44;
+  color: #e4623d;
+  z-index: 2;
+}

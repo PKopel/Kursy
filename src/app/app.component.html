@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg mb-3">
+  <img alt="logo" src="assets/img/logo.png">
+  <button class="navbar-toggler" type="button" (click)="isNavCollapsed = !isNavCollapsed">
+    &#9776;
+  </button>
+  <div [ngbCollapse]="isNavCollapsed" class="collapse navbar-collapse">
+    <ul class="navbar-nav">
+      <li *ngIf="currentUser && authorizationService.hasRole('admin', currentUser.uid)" class="nav-item active">
+        <a routerLink="/courses/new" routerLinkActive="active" (click)="isNavCollapsed = true">Dodaj kurs</a>
+      </li>
+      <li class="nav-item active">
+        <a routerLink="/courses" routerLinkActive="active" (click)="isNavCollapsed = true">Lista kursów</a>
+      </li>
+      <li *ngIf="!currentUser" class="nav-item active">
+        <a routerLink="/login" routerLinkActive="active" (click)="isNavCollapsed = true">Logowanie</a>
+      </li>
+      <li *ngIf="currentUser" class="nav-item active">
+        <a routerLink="/" routerLinkActive="active" (click)="isNavCollapsed = true; logout()">Wyloguj</a>
+      </li>
+
+    </ul>
+    <span class="user-name" *ngIf="currentUser">{{currentUser.email}}</span>
+  </div>
+</nav>
+<section class="content">
+  <router-outlet></router-outlet>
+</section>

@@ -1,0 +1,15 @@
+<div class="login-form">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+    <div *ngFor="let element of elements" class="form-group">
+      <label>{{element.label}}
+        <input [type]="element.type" [formControlName]="element.name" class="form-control"
+               [ngClass]="{ 'is-invalid': element.error }"/>
+      </label>
+      <span *ngIf="element.error" class="invalid-feedback">
+        {{element.error}}
+      </span>
+    </div>
+    <button type="submit">ZAREJESTRUJ</button>
+    <button routerLink="/login">LOGOWANIE</button>
+  </form>
+</div>

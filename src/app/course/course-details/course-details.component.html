@@ -1,0 +1,33 @@
+<div *ngIf="course" class="course-details">
+  <img [alt]="course.name" [src]="course.icon">
+  <div class="course">
+    <h1>{{course.name}}</h1>
+    <h2 class="rating">Ocena:
+      <app-course-rating [course]="course"
+                         [currentUser]="currentUser"
+                         [readonly]="!(currentUser && authorizationService.hasNotRatedCourse(course.name, currentUser.uid))"></app-course-rating>
+    </h2>
+    <div class="course-form">
+      <h3>Semestr: {{course.semester}}</h3>
+      <h3>ETCS: {{course.etcs}}</h3>
+    </div>
+    <div class="course-form">
+      <h3>Forma:</h3>
+      <h3 *ngFor="let form of course.form">
+        {{form}},
+      </h3>
+    </div>
+    <p>{{course.description}}</p>
+    <h3>Ilość miejsc: {{course.capacity}}</h3>
+
+  </div>
+
+  <div class="buttons">
+    <button [disabled]="!currentUser || authorizationService.hasCourse(course.name, currentUser.uid) || course.capacity == 0"
+            (click)="enroll()">ZAPISY
+    </button>
+    <button *ngIf="currentUser && authorizationService.hasRole('admin', currentUser.uid)"
+            [routerLink]="['/course',course.name,'edit']">EDYTUJ
+    </button>
+  </div>
+</div>

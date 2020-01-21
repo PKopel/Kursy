@@ -1,0 +1,53 @@
+<form (ngSubmit)="onSubmit(courseForm)" [formGroup]="courseForm">
+  <div class="form-group" *ngFor="let element of elementsService.getElements()">
+    <label>{{element.label}}</label>
+
+    <div class="form-group" *ngIf="!element.type && element.children" [formGroupName]="element.name"
+         [id]="element.name">
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">WYKŁAD</label>
+        <input class="form-check-input"
+               formControlName="lec"
+               name="lec"
+               type="checkbox"
+               [checked]="course.form.indexOf('wykład')>-1"/>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">ĆWICZENIA</label>
+        <input class="form-check-input"
+               formControlName="exe"
+               name="exe"
+               type="checkbox"
+               [checked]="course.form.indexOf('ćwiczenia')>-1"/>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">LABOLATORIA</label>
+        <input class="form-check-input"
+               formControlName="lab"
+               name="lab"
+               type="checkbox"
+               [checked]="course.form.indexOf('labolatoria')>-1"/>
+      </div>
+    </div>
+
+    <textarea class="form-control"
+              *ngIf="!element.type && !element.children"
+              [formControlName]="element.name"
+              [name]="element.name"
+              [value]="course[element.name]"></textarea>
+
+    <input class="form-control"
+           *ngIf="element.type"
+           [formControlName]="element.name"
+           [name]="element.name"
+           [type]="element.type"
+           [readOnly]="!element.edit"
+           [value]="course[element.name]">
+    <span
+      *ngIf="elementsService.getErrorMessage(element.name)">
+      {{ elementsService.getErrorMessage(element.name) }}</span>
+  </div>
+  <button [disabled]="!courseForm.valid" type="submit" class="btn">ZAPISZ</button>
+  <button type="reset">WYCZYŚĆ</button>
+</form>
+

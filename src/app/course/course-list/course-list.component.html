@@ -1,0 +1,24 @@
+<div class="component">
+  <app-course-filter (courseFilter)="setFilter($event)" *ngIf="courses" [courses]="courses"></app-course-filter>
+  <div class="course-list">
+    <div class="pagination">
+      <ngb-pagination
+        [(page)]="page"
+        [collectionSize]="(this.courses | courseFilter :filter).length"
+        [pageSize]="pageSize"></ngb-pagination>
+
+      <div class="d-inline-block" ngbDropdown>
+        <button class="btn " id="dropdownBasic1" ngbDropdownToggle>Ilość elementów na stronie</button>
+        <div aria-labelledby="dropdownBasic1" ngbDropdownMenu>
+          <button (click)="pageSize = size" *ngFor="let size of sizes"
+                  ngbDropdownItem>{{size}}</button>
+        </div>
+      </div>
+    </div>
+    <app-course-list-item (remove)="removeCourse($event)"
+                          *ngFor="let course of (this.courses | courseFilter :filter | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize)"
+                          [course]="course"
+                          class="course"
+    ></app-course-list-item>
+  </div>
+</div>

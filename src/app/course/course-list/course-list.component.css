@@ -1,0 +1,80 @@
+
+@media screen and (min-width: 990px) {
+
+  app-course-filter {
+    position: fixed;
+    width: 200px;
+  }
+
+  .course-list {
+    padding:8px 8px 8px 220px ;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .component {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .course-list {
+    padding: 8px;
+  }
+}
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+  color: #2c1e44;
+}
+
+.course-list app-course-list-item:nth-child(even) {
+  background-color: #13bdb8;
+}
+
+.course-list app-course-list-item:nth-child(odd) {
+  background-color: #2598a4;
+}
+
+.course {
+  margin-bottom: 20px;
+  width: 100%;
+  position: relative;
+  align-content: center;
+  border-radius: 5px;
+}
+
+app-course-filter {
+  width: available;
+}
+
+app-course-list-pagination {
+  align-self: center;
+}
+
+.pagination {
+  display: flow;
+}
+
+.pagination ul {
+  margin-right: 10px;
+}
+
+/deep/ a.page-link, /deep/ .page-item.disabled .page-link {
+  background-color: #13bdb8;
+  border-color: #13bdb8;
+  color: #2c1e44;
+}
+
+/deep/ .page-item.active .page-link, /deep/ .page-item:hover .page-link {
+  background-color: #e4623d;
+  border-color: #e4623d;
+  color: #2c1e44;
+}
+
+/deep/ .btn {
+  margin-left: 20px;
+  background-color: #13bdb8;
+  color: #2c1e44;
+  padding: .5rem .75rem;
+}

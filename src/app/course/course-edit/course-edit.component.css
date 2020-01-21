@@ -1,0 +1,38 @@
+
+form {
+  color: #e4623d;
+  padding: 10px;
+}
+
+@media screen and (min-width: 900px) {
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+div:last-of-type {
+  grid-column: span 2;
+}
+
+textarea {
+  height: 6em;
+}
+
+button {
+  font-size: xx-large;
+  background-color: inherit;
+  border: none;
+}
+
+button:enabled {
+  color: #e4623d;
+}

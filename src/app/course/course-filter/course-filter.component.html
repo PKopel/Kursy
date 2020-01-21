@@ -1,0 +1,13 @@
+<form (ngSubmit)="courseFilter.emit(onSubmit(filterForm))" [formGroup]="filterForm">
+  <label *ngFor="let filter of this.filters; let fi = index">{{filter.label}}
+    <input *ngIf="filter.name==='name'" [formControlName]="filter.name" [name]="filter.name" type="text" [ngbTypeahead]="search">
+    <div *ngIf="filter.name!=='name'" class="checkboxes">
+      <label *ngFor="let _ of getValues(filter.name); let i = index"
+             [formArrayName]="filter.name">
+        <input [formControlName]="i" type="checkbox"/> {{getValues(filter.name)[i]}}
+      </label>
+    </div>
+  </label>
+  <button type="submit">FILTRUJ</button>
+  <button type="reset">WYCZYŚĆ FILTR</button>
+</form>

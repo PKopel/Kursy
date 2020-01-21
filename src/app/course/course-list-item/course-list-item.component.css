@@ -1,0 +1,32 @@
+img {
+  float: left;
+  height: 100px;
+  width: auto;
+  padding-right: 20px;
+}
+
+h2 {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: Transparent no-repeat;
+  color: inherit;
+  outline: none;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+}
+
+app-course-rating {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

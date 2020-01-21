@@ -1,0 +1,6 @@
+<a [routerLink]="['/course',course.name]">
+  <img [alt]="course.name" [src]="course.icon" class="course-icon">
+  <h2>{{course.name}}</h2>
+  <app-course-rating [course]="course" [readonly]="true"></app-course-rating>
+</a>
+<button *ngIf="currentUser && authorizationService.hasRole('admin', currentUser.uid)" (click)="remove.emit(course)">X</button>
