@@ -4,6 +4,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Go to [app](https://kursy-1bce2.web.app/courses)
 
-## Author
+### Author
+* **[Paweł Kopel](https://github.com/PKopel)**
 
-* **Paweł Kopel**
